@@ -9,6 +9,15 @@
 #import "NEOAppDelegate.h"
 
 #import "NEOCalendarViewController.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+#import "MoPub.h"
+#import <Google/Analytics.h>
+
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define RGB(r, g, b)		[UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
+#define RGBA(r, g, b, a)	[UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
 @implementation NEOAppDelegate
 
@@ -20,6 +29,36 @@
     self.window.rootViewController = navi;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [Fabric with:@[[Crashlytics class], [MoPub class]]];
+    
+    
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x27ae60)];
+    
+    NSDictionary *titleDict = @{ NSForegroundColorAttributeName : UIColorFromRGB(0xFFFFFF),
+                                 NSFontAttributeName : [UIFont boldSystemFontOfSize:19.0]};
+    
+    [[UINavigationBar appearance] setTitleTextAttributes: titleDict];
+    [[UINavigationBar appearance] setTintColor:UIColorFromRGB(0xFFFFFF)];
+
+    
+    [[UIToolbar appearance] setBarTintColor:UIColorFromRGB(0x27ae60)];
+    
+    [[UIToolbar appearance] setTintColor:UIColorFromRGB(0xFFFFFF)];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
+    // Configure tracker from GoogleService-Info.plist.
+    NSError *configureError;
+    [[GGLContext sharedInstance] configureWithError:&configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
+    
+    // Optional: configure GAI options.
+    GAI *gai = [GAI sharedInstance];
+    gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
+//    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
+
+    
     return YES;
 }
 

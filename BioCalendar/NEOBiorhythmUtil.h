@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, BiorhythmType) {
     physicalType = 0,
     emotionType = 1,
     intelligenceType = 2
-} BiorhythmType;
+};
 
 @interface NEOBiorhythmUtil : NSObject
 

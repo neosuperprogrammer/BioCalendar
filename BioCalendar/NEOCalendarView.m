@@ -194,7 +194,7 @@
     UIButton *dayButton = (UIButton *)sender;
     NEODayView *dayView = (NEODayView *)dayButton.superview;
     
-    NEOLog(@"day : %d is selected", dayView.dateComp.day);
+    NEOLog(@"day : %ld is selected", (long)dayView.dateComp.day);
     
     if(dayView.dateComp.month == _dateComp.month) {
         NSInteger index = dayView.dateComp.day - 1;

@@ -9,6 +9,8 @@
 #import "RegisterPersonViewController.h"
 #import "PersonDatas.h"
 #import "NEODatePickerSheet.h"
+#import "DatePickerController.h"
+#import <Google/Analytics.h>
 
 @interface RegisterPersonViewController () < UITextFieldDelegate >
 
@@ -32,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.translucent = NO;
     // Do any additional setup after loading the view from its nib.
     
     self.title = NSLocalizedString(@"RegisterPerson", @"");
@@ -44,6 +47,8 @@
     NSString *date = [format stringFromDate:today];
     _birthdayLabel.text = date;
     
+//    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 44, self.view.frame.size.width, self.view.frame.size.height - 44);
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -51,6 +56,9 @@
     [super viewWillAppear:animated];
     [self.navigationController setToolbarHidden:YES animated:animated];
     
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"RegisterPerson"];
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 
 }
 
@@ -120,15 +128,42 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    NEODatePickerSheet *sheet = [[NEODatePickerSheet alloc] init];
-    [sheet setConfirm:^(NSDate *date) {
+//    NEODatePickerSheet *sheet = [[NEODatePickerSheet alloc] init];
+//    [sheet setConfirm:^(NSDate *date) {
+//        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+//        [format setDateFormat:@"yyyy-MM-dd"];
+//        NSString *dateString = [format stringFromDate:date];
+//        _birthdayLabel.text = dateString;
+//    }];
+//    [sheet show:self.view];
+//    return NO;
+    
+    
+    [_nameLabel resignFirstResponder];
+    DatePickerController *pickerController = [[DatePickerController alloc] initWithNibName:@"DatePickerController" bundle:nil];
+    [pickerController setDidSelect:^(NSDate *date) {
         NSDateFormatter *format = [[NSDateFormatter alloc] init];
         [format setDateFormat:@"yyyy-MM-dd"];
         NSString *dateString = [format stringFromDate:date];
         _birthdayLabel.text = dateString;
     }];
-    [sheet show:self.view];
+    [pickerController setWillClose:^{
+        
+    }];
+    
+    [pickerController showInViewController:self];
+    pickerController.datePicker.minuteInterval = 1; //5; // 안드로이드에 맞춰 1분단위로 수정
+    pickerController.datePicker.datePickerMode = UIDatePickerModeDate;
+//    if( self.eventKind == CnCEventFuneral ){
+//        pickerController.datePicker.datePickerMode = UIDatePickerModeDate;
+//    }
+//    else {
+//        pickerController.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+//    }
+    
+//    [pickerController.datePicker setDate:self.targetDate animated:NO];
     return NO;
+
 }
 
 

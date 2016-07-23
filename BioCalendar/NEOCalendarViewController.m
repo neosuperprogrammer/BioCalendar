@@ -14,6 +14,9 @@
 #import "NEOCalloutView.h"
 #import "PersonDatas.h"
 #import "NEOInfoViewController.h"
+#import <Crashlytics/Crashlytics.h>
+#import <Google/Analytics.h>
+#import <Google/Analytics.h>
 
 @interface NEOCalendarViewController ()
 
@@ -46,10 +49,27 @@
         [self setupLayout];
         
         self.title = [NSBundle mainBundle].infoDictionary[@"CFBundleDisplayName"];
+        // TODO: Replace this test id with your personal ad unit id
+        MPAdView* adView = [[MPAdView alloc] initWithAdUnitId:@"0fd404de447942edb7610228cb412614"
+                                                         size:MOPUB_BANNER_SIZE];
+        self.adView = adView;
+        self.adView.delegate = self;
         
+        // Positions the ad at the bottom, with the correct size
+//        [self.view addSubview:self.adView];
+        
+        // Loads the ad over the network
+        [self.adView loadAd];
+
     }
     return self;
 }
+
+#pragma mark - <MPAdViewDelegate>
+- (UIViewController *)viewControllerForPresentingModalView {
+    return self;
+}
+
 
 - (void)viewDidLoad
 {
@@ -57,10 +77,16 @@
 	[self showCalendar];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStylePlain target:nil action:nil];
 
+    self.navigationController.navigationBar.translucent = NO;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"MainView"];
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+
     [self.navigationController setToolbarHidden:NO animated:animated];
     
     UIBarButtonItem *barBtnLeft = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"SelectPerson", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(action:)];
@@ -79,13 +105,16 @@
     [infoButton addTarget:self action:@selector(info:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *infoBarButton = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
     
-    self.toolbarItems = @[barBtnLeft, flexible, segBarButton, flexible, infoBarButton];
+    self.toolbarItems = @[barBtnLeft, flexible, segBarButton, flexible];
     
     [self segSelected:_bioSeg];
     
     
     [_currCalendarView setDateComponent:self.currentDateComp];
-    self.navigationItem.prompt = [[PersonDatas getInstance] getSelectedPersonInfo];
+//    self.navigationItem.prompt = [[PersonDatas getInstance] getSelectedPersonInfo];
+    
+    [self layoutFrame];
+
 }
 
 - (IBAction)info:(id)sender
@@ -131,9 +160,14 @@
     UISegmentedControl *seg = (UISegmentedControl *)sender;
     _biorhythmType = seg.selectedSegmentIndex;
     
-    self.title = [NSString stringWithFormat:@"%@(%@)", [NSBundle mainBundle].infoDictionary[@"CFBundleDisplayName"], [seg titleForSegmentAtIndex:seg.selectedSegmentIndex]];
+    self.title = [NSString stringWithFormat:@"%@(%@)-%@", @"Biorhythm", [seg titleForSegmentAtIndex:seg.selectedSegmentIndex], [[PersonDatas getInstance] getSelectedPersonInfo]];
+    
+    self.navigationController.navigationBar.translucent = NO;
     
     [self changeBiorhythmType];
+    if ([_popOver isShowing]) {
+        [_popOver hide:YES];
+    }
 }
 
 - (void)changeBiorhythmType
@@ -164,11 +198,14 @@
 
 - (void)layoutFrame
 {
-    _titleView.frame = _titleView.frame;
-    CGRect calendarRect = CGRectMake(0.0f, 40.0f, self.view.frame.size.width, self.view.frame.size.height - 40.0f);
+    _titleView.frame = CGRectMake(0.0f, 20 + 30 + 44.0, self.view.frame.size.width, 40);
+    CGRect calendarRect = CGRectMake(0.0f, 0.0, self.view.frame.size.width, self.view.frame.size.height - (44));
     _prevCalendarView.frame = calendarRect;
     _nextCalendarView.frame = calendarRect;
     _currCalendarView.frame = calendarRect;
+    
+    self.adView.frame = CGRectMake(0, self.view.bounds.size.height - MOPUB_BANNER_SIZE.height - 44,
+                                   MOPUB_BANNER_SIZE.width, MOPUB_BANNER_SIZE.height);
 }
 
 - (void)didReceiveMemoryWarning
@@ -241,6 +278,10 @@
     __weak NEOCalendarViewController *_self = self;
     
     [_currCalendarView setSelectDelegate:^(UIView *view, NSString *message) {
+        if ([popOver isShowing]) {
+            [popOver hide:YES];
+            return;
+        }
         popOver.title = message;
         
         CGRect clickRect = [view convertRect:view.bounds toView:_self.view];

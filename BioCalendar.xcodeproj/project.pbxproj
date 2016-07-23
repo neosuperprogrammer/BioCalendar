@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E451C721D3A49F000C62FBF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E451C711D3A49F000C62FBF /* Images.xcassets */; };
+		3E451C741D3A4A1A00C62FBF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E451C731D3A4A1A00C62FBF /* Launch Screen.storyboard */; };
+		3E451C791D3BAEA400C62FBF /* DatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E451C771D3BAEA400C62FBF /* DatePickerController.m */; };
+		3E451C7A1D3BAEA400C62FBF /* DatePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E451C781D3BAEA400C62FBF /* DatePickerController.xib */; };
+		3E451C7D1D3BB03C00C62FBF /* Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E451C7C1D3BB03C00C62FBF /* Setting.m */; };
+		3E451C801D3BB0E400C62FBF /* DeviceSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E451C7F1D3BB0E400C62FBF /* DeviceSetting.m */; };
+		3E451C821D427CA400C62FBF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E451C811D427CA400C62FBF /* GoogleService-Info.plist */; };
 		3E8FC4AB174B9A24005552DB /* screenshot_768_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FC4A8174B9A24005552DB /* screenshot_768_1024.png */; };
 		3E8FC4AC174B9A24005552DB /* screenshot_320_480.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FC4A9174B9A24005552DB /* screenshot_320_480.png */; };
 		3E8FC4AD174B9A24005552DB /* ItunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FC4AA174B9A24005552DB /* ItunesArtwork.png */; };
@@ -40,9 +47,20 @@
 		3EBC4358174116F5007D6557 /* PersonDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC4357174116F5007D6557 /* PersonDatas.m */; };
 		3EBC435B17411764007D6557 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC435D17411764007D6557 /* Localizable.strings */; };
 		3EBE661817438A0F009704CF /* NEOCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBE661617438A0F009704CF /* NEOCalloutView.m */; };
+		A911544B3946BB8367358B51 /* libPods-BioCalendar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E166522BF59D97B3A09465C4 /* libPods-BioCalendar.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E451C711D3A49F000C62FBF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3E451C731D3A4A1A00C62FBF /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		3E451C761D3BAEA400C62FBF /* DatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerController.h; sourceTree = "<group>"; };
+		3E451C771D3BAEA400C62FBF /* DatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerController.m; sourceTree = "<group>"; };
+		3E451C781D3BAEA400C62FBF /* DatePickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerController.xib; sourceTree = "<group>"; };
+		3E451C7B1D3BB03C00C62FBF /* Setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Setting.h; sourceTree = "<group>"; };
+		3E451C7C1D3BB03C00C62FBF /* Setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Setting.m; sourceTree = "<group>"; };
+		3E451C7E1D3BB0E400C62FBF /* DeviceSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSetting.h; sourceTree = "<group>"; };
+		3E451C7F1D3BB0E400C62FBF /* DeviceSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSetting.m; sourceTree = "<group>"; };
+		3E451C811D427CA400C62FBF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E8FC4A8174B9A24005552DB /* screenshot_768_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot_768_1024.png; sourceTree = SOURCE_ROOT; };
 		3E8FC4A9174B9A24005552DB /* screenshot_320_480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot_320_480.png; sourceTree = SOURCE_ROOT; };
 		3E8FC4AA174B9A24005552DB /* ItunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ItunesArtwork.png; sourceTree = SOURCE_ROOT; };
@@ -55,7 +73,7 @@
 		3EBA7296174A4AD8008788EF /* NEOInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEOInfoViewController.h; sourceTree = "<group>"; };
 		3EBA7297174A4AD8008788EF /* NEOInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEOInfoViewController.m; sourceTree = "<group>"; };
 		3EBA7298174A4AD8008788EF /* NEOInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NEOInfoViewController.xib; sourceTree = "<group>"; };
-		3EBC4308174111BC007D6557 /* BioCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BioCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EBC4308174111BC007D6557 /* How's today.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "How's today.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBC430B174111BC007D6557 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3EBC430D174111BC007D6557 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3EBC430F174111BC007D6557 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -94,6 +112,9 @@
 		3EBC435E17411774007D6557 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3EBE661617438A0F009704CF /* NEOCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEOCalloutView.m; sourceTree = "<group>"; };
 		3EBE661717438A0F009704CF /* NEOCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEOCalloutView.h; sourceTree = "<group>"; };
+		96219829B9F39466729AFBF5 /* Pods-BioCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BioCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-BioCalendar/Pods-BioCalendar.release.xcconfig"; sourceTree = "<group>"; };
+		D2B13C03532F04070E309062 /* Pods-BioCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BioCalendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BioCalendar/Pods-BioCalendar.debug.xcconfig"; sourceTree = "<group>"; };
+		E166522BF59D97B3A09465C4 /* libPods-BioCalendar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BioCalendar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +125,7 @@
 				3EBC430C174111BC007D6557 /* UIKit.framework in Frameworks */,
 				3EBC430E174111BC007D6557 /* Foundation.framework in Frameworks */,
 				3EBC4310174111BC007D6557 /* CoreGraphics.framework in Frameworks */,
+				A911544B3946BB8367358B51 /* libPods-BioCalendar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,16 +135,18 @@
 		3EBC42FF174111BC007D6557 = {
 			isa = PBXGroup;
 			children = (
+				3E451C811D427CA400C62FBF /* GoogleService-Info.plist */,
 				3EBC4311174111BC007D6557 /* BioCalendar */,
 				3EBC430A174111BC007D6557 /* Frameworks */,
 				3EBC4309174111BC007D6557 /* Products */,
+				9792BF69F8A8AD682323C5CF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		3EBC4309174111BC007D6557 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3EBC4308174111BC007D6557 /* BioCalendar.app */,
+				3EBC4308174111BC007D6557 /* How's today.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,6 +157,7 @@
 				3EBC430B174111BC007D6557 /* UIKit.framework */,
 				3EBC430D174111BC007D6557 /* Foundation.framework */,
 				3EBC430F174111BC007D6557 /* CoreGraphics.framework */,
+				E166522BF59D97B3A09465C4 /* libPods-BioCalendar.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,6 +170,8 @@
 				3EBC432E174111F9007D6557 /* Sources */,
 				3EBC432F17411204007D6557 /* Images */,
 				3EBC43301741120D007D6557 /* Resources */,
+				3E451C711D3A49F000C62FBF /* Images.xcassets */,
+				3E451C731D3A4A1A00C62FBF /* Launch Screen.storyboard */,
 			);
 			path = BioCalendar;
 			sourceTree = "<group>";
@@ -203,6 +230,9 @@
 				3EBA7296174A4AD8008788EF /* NEOInfoViewController.h */,
 				3EBA7297174A4AD8008788EF /* NEOInfoViewController.m */,
 				3EBA7298174A4AD8008788EF /* NEOInfoViewController.xib */,
+				3E451C761D3BAEA400C62FBF /* DatePickerController.h */,
+				3E451C771D3BAEA400C62FBF /* DatePickerController.m */,
+				3E451C781D3BAEA400C62FBF /* DatePickerController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -233,6 +263,10 @@
 				3EBC433F17411319007D6557 /* NEOBiorhythmUtil.m */,
 				3EBC434017411319007D6557 /* NEODateUtil.h */,
 				3EBC434117411319007D6557 /* NEODateUtil.m */,
+				3E451C7E1D3BB0E400C62FBF /* DeviceSetting.h */,
+				3E451C7F1D3BB0E400C62FBF /* DeviceSetting.m */,
+				3E451C7B1D3BB03C00C62FBF /* Setting.h */,
+				3E451C7C1D3BB03C00C62FBF /* Setting.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -246,6 +280,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		9792BF69F8A8AD682323C5CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D2B13C03532F04070E309062 /* Pods-BioCalendar.debug.xcconfig */,
+				96219829B9F39466729AFBF5 /* Pods-BioCalendar.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,9 +296,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3EBC432B174111BC007D6557 /* Build configuration list for PBXNativeTarget "BioCalendar" */;
 			buildPhases = (
+				FE0217FDE9EC87AD94C2B6AD /* [CP] Check Pods Manifest.lock */,
 				3EBC4304174111BC007D6557 /* Sources */,
 				3EBC4305174111BC007D6557 /* Frameworks */,
 				3EBC4306174111BC007D6557 /* Resources */,
+				65D7F372CE10EE6EB9988A1B /* [CP] Embed Pods Frameworks */,
+				3FC29B386BFD88BF63C30D37 /* [CP] Copy Pods Resources */,
+				3E451C751D3A4C7900C62FBF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -263,7 +310,7 @@
 			);
 			name = BioCalendar;
 			productName = BioCalendar;
-			productReference = 3EBC4308174111BC007D6557 /* BioCalendar.app */;
+			productReference = 3EBC4308174111BC007D6557 /* How's today.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -273,8 +320,13 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = NEO;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Sangwook Nam";
+				TargetAttributes = {
+					3EBC4307174111BC007D6557 = {
+						DevelopmentTeam = H9WM357P4G;
+					};
+				};
 			};
 			buildConfigurationList = 3EBC4303174111BC007D6557 /* Build configuration list for PBXProject "BioCalendar" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -310,15 +362,80 @@
 				3EBA7293174A47A2008788EF /* Icon.png in Resources */,
 				3EBA7295174A47AB008788EF /* Icon@2.png in Resources */,
 				3EBA729A174A4AD9008788EF /* NEOInfoViewController.xib in Resources */,
+				3E451C721D3A49F000C62FBF /* Images.xcassets in Resources */,
+				3E451C741D3A4A1A00C62FBF /* Launch Screen.storyboard in Resources */,
 				3E8FC4AB174B9A24005552DB /* screenshot_768_1024.png in Resources */,
 				3E8FC4AC174B9A24005552DB /* screenshot_320_480.png in Resources */,
 				3E8FC4AD174B9A24005552DB /* ItunesArtwork.png in Resources */,
+				3E451C7A1D3BAEA400C62FBF /* DatePickerController.xib in Resources */,
+				3E451C821D427CA400C62FBF /* GoogleService-Info.plist in Resources */,
 				3E8FC4B0174B9BA0005552DB /* screenshot_640_1136.png in Resources */,
 				3E8FC4B1174B9BA0005552DB /* screenshot_640_960.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3E451C751D3A4C7900C62FBF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" cead31e8cc99948b25379edb482a66233d6ca003 3a5346994eedac936cc1dffbeefd6d68f498494a826555fb6cd8daeaa035af3a";
+		};
+		3FC29B386BFD88BF63C30D37 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BioCalendar/Pods-BioCalendar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65D7F372CE10EE6EB9988A1B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BioCalendar/Pods-BioCalendar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE0217FDE9EC87AD94C2B6AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3EBC4304174111BC007D6557 /* Sources */ = {
@@ -327,15 +444,18 @@
 			files = (
 				3EBC4318174111BC007D6557 /* main.m in Sources */,
 				3EBC431C174111BC007D6557 /* NEOAppDelegate.m in Sources */,
+				3E451C7D1D3BB03C00C62FBF /* Setting.m in Sources */,
 				3EBC433A174112ED007D6557 /* NEODayView.m in Sources */,
 				3EBC433B174112ED007D6557 /* NEOTitleView.m in Sources */,
 				3EBC434217411319007D6557 /* NEOBiorhythmUtil.m in Sources */,
 				3EBC434317411319007D6557 /* NEODateUtil.m in Sources */,
+				3E451C801D3BB0E400C62FBF /* DeviceSetting.m in Sources */,
 				3EBC434617411326007D6557 /* NEOCalendarView.m in Sources */,
 				3EBC434A174113EC007D6557 /* NEOCalendarViewController.m in Sources */,
 				3EBC4351174116B1007D6557 /* SelectPersonViewController.m in Sources */,
 				3EBC4352174116B1007D6557 /* RegisterPersonViewController.m in Sources */,
 				3EBC4358174116F5007D6557 /* PersonDatas.m in Sources */,
+				3E451C791D3BAEA400C62FBF /* DatePickerController.m in Sources */,
 				3EBE661817438A0F009704CF /* NEOCalloutView.m in Sources */,
 				3EB4BBA71744C65300A6BBF5 /* NEODatePickerSheet.m in Sources */,
 				3EBA7299174A4AD9008788EF /* NEOInfoViewController.m in Sources */,
@@ -371,6 +491,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -382,7 +503,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -406,7 +527,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -415,22 +536,38 @@
 		};
 		3EBC432C174111BC007D6557 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2B13C03532F04070E309062 /* Pods-BioCalendar.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: SangWook Nam (2DPLLUVV7H)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BioCalendar/BioCalendar-Prefix.pch";
 				INFOPLIST_FILE = "BioCalendar/BioCalendar-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flowgrammer.BiorhythmCalendar;
+				PRODUCT_NAME = "How's today";
+				PROVISIONING_PROFILE = "63740d9a-2c4f-45ab-878e-da5833c42627";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		3EBC432D174111BC007D6557 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96219829B9F39466729AFBF5 /* Pods-BioCalendar.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SangWook Nam (H9WM357P4G)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BioCalendar/BioCalendar-Prefix.pch";
 				INFOPLIST_FILE = "BioCalendar/BioCalendar-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flowgrammer.BiorhythmCalendar;
+				PRODUCT_NAME = "How's today";
+				PROVISIONING_PROFILE = "6900ff1b-d756-42ff-bcda-c180a01e3f19";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

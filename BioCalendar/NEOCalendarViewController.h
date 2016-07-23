@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPAdView.h"
 
+@interface NEOCalendarViewController : UIViewController <MPAdViewDelegate>
 
-@interface NEOCalendarViewController : UIViewController
-
+@property (nonatomic, retain) MPAdView *adView;
 
 @end

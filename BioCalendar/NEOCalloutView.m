@@ -273,6 +273,11 @@
 //    [self hide:YES];
 //}
 
+- (BOOL)isShowing {
+
+    return self.superview != nil;
+}
+
 - (void)hide:(BOOL)animated
 {
     if(self.superview != nil) {

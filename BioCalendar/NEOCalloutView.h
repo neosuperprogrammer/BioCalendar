@@ -13,5 +13,7 @@
 @property (copy, nonatomic) NSString *title;
 
 - (void)showPopover:(CGPoint)anchorPoint inView:(UIView *)superView animated:(BOOL)animated;
+- (BOOL)isShowing;
+- (void)hide:(BOOL)animated;
 
 @end

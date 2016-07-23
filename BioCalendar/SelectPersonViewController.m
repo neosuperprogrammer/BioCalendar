@@ -11,6 +11,7 @@
 
 #import "PersonDatas.h"
 #import "PersonDatas.h"
+#import <Google/Analytics.h>
 
 @interface SelectPersonViewController () < UITableViewDataSource, UITableViewDelegate > {
     PersonDatas *_personDatas;
@@ -42,13 +43,14 @@
     self.title = NSLocalizedString(@"SelectPerson", "");
     
     
-    UIBarButtonItem *barBtnLeft = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"RegisterPerson", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(action:)];
+    UIBarButtonItem *barBtnLeft = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"RegisterPerson", @"") style:UIBarButtonItemStylePlain target:self action:@selector(action:)];
     self.toolbarItems = @[barBtnLeft];
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 //    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editAction:)];
 //    self.navigationItem.leftBarButtonItem = editButton;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
 }
 
 - (IBAction)editAction:(id)sender
@@ -74,6 +76,10 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"SelectPerson"];
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+
     [super viewWillAppear:animated];
     
     [self.navigationController setToolbarHidden:NO animated:animated];

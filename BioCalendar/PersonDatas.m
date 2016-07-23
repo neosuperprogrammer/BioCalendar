@@ -99,12 +99,19 @@ static  PersonDatas *mySelf;
 
 - (NSString *)getSelectedPersonInfo
 {
+//    if(_selectedIndex < 0 || _personDatas.count <= 0) {
+//        return NSLocalizedString(@"SelectPersonPlease", @"");
+//    }
+//    else {
+//        return [NSString stringWithFormat:@"%@ (%@)", [self getPersonName:_selectedIndex], [self getPersonBirthday:_selectedIndex]];
+//    }
     if(_selectedIndex < 0 || _personDatas.count <= 0) {
-        return NSLocalizedString(@"SelectPersonPlease", @"");
+        return NSLocalizedString(@"select person!", @"");
     }
     else {
-        return [NSString stringWithFormat:@"%@ (%@)", [self getPersonName:_selectedIndex], [self getPersonBirthday:_selectedIndex]];
+        return [NSString stringWithFormat:@"%@", [self getPersonName:_selectedIndex]];
     }
+
 }
 
 - (NSDateComponents *)getPersonBirthdayDateComp

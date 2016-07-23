@@ -30,7 +30,7 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"Information";
     
-    
+    self.navigationController.navigationBar.translucent = NO;
     UIBarButtonItem *bar = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(click:)];
     
     self.navigationItem.rightBarButtonItem = bar;
