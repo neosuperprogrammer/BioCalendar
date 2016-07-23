@@ -14,6 +14,8 @@
 		3E451C7D1D3BB03C00C62FBF /* Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E451C7C1D3BB03C00C62FBF /* Setting.m */; };
 		3E451C801D3BB0E400C62FBF /* DeviceSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E451C7F1D3BB0E400C62FBF /* DeviceSetting.m */; };
 		3E451C821D427CA400C62FBF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E451C811D427CA400C62FBF /* GoogleService-Info.plist */; };
+		3E56C2581D4338F600476289 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E56C2571D4338F600476289 /* Main.storyboard */; };
+		3E56C25B1D43396700476289 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E56C25A1D43396700476289 /* MainViewController.m */; };
 		3E8FC4AB174B9A24005552DB /* screenshot_768_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FC4A8174B9A24005552DB /* screenshot_768_1024.png */; };
 		3E8FC4AC174B9A24005552DB /* screenshot_320_480.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FC4A9174B9A24005552DB /* screenshot_320_480.png */; };
 		3E8FC4AD174B9A24005552DB /* ItunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FC4AA174B9A24005552DB /* ItunesArtwork.png */; };
@@ -61,6 +63,9 @@
 		3E451C7E1D3BB0E400C62FBF /* DeviceSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSetting.h; sourceTree = "<group>"; };
 		3E451C7F1D3BB0E400C62FBF /* DeviceSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSetting.m; sourceTree = "<group>"; };
 		3E451C811D427CA400C62FBF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3E56C2571D4338F600476289 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3E56C2591D43396700476289 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		3E56C25A1D43396700476289 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		3E8FC4A8174B9A24005552DB /* screenshot_768_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot_768_1024.png; sourceTree = SOURCE_ROOT; };
 		3E8FC4A9174B9A24005552DB /* screenshot_320_480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot_320_480.png; sourceTree = SOURCE_ROOT; };
 		3E8FC4AA174B9A24005552DB /* ItunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ItunesArtwork.png; sourceTree = SOURCE_ROOT; };
@@ -172,6 +177,7 @@
 				3EBC43301741120D007D6557 /* Resources */,
 				3E451C711D3A49F000C62FBF /* Images.xcassets */,
 				3E451C731D3A4A1A00C62FBF /* Launch Screen.storyboard */,
+				3E56C2571D4338F600476289 /* Main.storyboard */,
 			);
 			path = BioCalendar;
 			sourceTree = "<group>";
@@ -219,6 +225,7 @@
 		3EBC43311741121B007D6557 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3E451C781D3BAEA400C62FBF /* DatePickerController.xib */,
 				3EBC4349174113EC007D6557 /* NEOCalendarViewController.h */,
 				3EBC4348174113EC007D6557 /* NEOCalendarViewController.m */,
 				3EBC4350174116B1007D6557 /* SelectPersonViewController.h */,
@@ -232,7 +239,8 @@
 				3EBA7298174A4AD8008788EF /* NEOInfoViewController.xib */,
 				3E451C761D3BAEA400C62FBF /* DatePickerController.h */,
 				3E451C771D3BAEA400C62FBF /* DatePickerController.m */,
-				3E451C781D3BAEA400C62FBF /* DatePickerController.xib */,
+				3E56C2591D43396700476289 /* MainViewController.h */,
+				3E56C25A1D43396700476289 /* MainViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -351,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E56C2581D4338F600476289 /* Main.storyboard in Resources */,
 				3EBC431E174111BC007D6557 /* Default.png in Resources */,
 				3EBC4320174111BC007D6557 /* Default@2x.png in Resources */,
 				3EBC4322174111BC007D6557 /* Default-568h@2x.png in Resources */,
@@ -455,6 +464,7 @@
 				3EBC4351174116B1007D6557 /* SelectPersonViewController.m in Sources */,
 				3EBC4352174116B1007D6557 /* RegisterPersonViewController.m in Sources */,
 				3EBC4358174116F5007D6557 /* PersonDatas.m in Sources */,
+				3E56C25B1D43396700476289 /* MainViewController.m in Sources */,
 				3E451C791D3BAEA400C62FBF /* DatePickerController.m in Sources */,
 				3EBE661817438A0F009704CF /* NEOCalloutView.m in Sources */,
 				3EB4BBA71744C65300A6BBF5 /* NEODatePickerSheet.m in Sources */,

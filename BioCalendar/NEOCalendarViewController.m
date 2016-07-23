@@ -16,7 +16,6 @@
 #import "NEOInfoViewController.h"
 #import <Crashlytics/Crashlytics.h>
 #import <Google/Analytics.h>
-#import <Google/Analytics.h>
 
 @interface NEOCalendarViewController ()
 
@@ -50,16 +49,7 @@
         
         self.title = [NSBundle mainBundle].infoDictionary[@"CFBundleDisplayName"];
         // TODO: Replace this test id with your personal ad unit id
-        MPAdView* adView = [[MPAdView alloc] initWithAdUnitId:@"0fd404de447942edb7610228cb412614"
-                                                         size:MOPUB_BANNER_SIZE];
-        self.adView = adView;
-        self.adView.delegate = self;
-        
-        // Positions the ad at the bottom, with the correct size
-//        [self.view addSubview:self.adView];
-        
-        // Loads the ad over the network
-        [self.adView loadAd];
+
 
     }
     return self;
@@ -78,6 +68,42 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStylePlain target:nil action:nil];
 
     self.navigationController.navigationBar.translucent = NO;
+    
+#if 0
+    MPAdView* adView = [[MPAdView alloc] initWithAdUnitId:@"0fd404de447942edb7610228cb412614"
+                                                     size:MOPUB_BANNER_SIZE];
+#else
+    MPAdView* adView = [[MPAdView alloc] initWithAdUnitId:@"98c06e78f5ce49d2b7b1506518778fb2"
+                                                     size:MOPUB_BANNER_SIZE];
+#endif
+    
+    self.adView = adView;
+    self.adView.delegate = self;
+    
+    // Positions the ad at the bottom, with the correct size
+    self.adView.frame = CGRectMake(0, self.view.bounds.size.height - MOPUB_BANNER_SIZE.height - 44,
+                                   MOPUB_BANNER_SIZE.width, MOPUB_BANNER_SIZE.height);
+//    [self.view addSubview:self.adView];
+
+    // Loads the ad over the network
+//    [self.adView loadAd];
+    
+    self.bannerView =  [[GADBannerView alloc] init];
+    self.bannerView.frame = CGRectMake(0, self.view.bounds.size.height - MOPUB_BANNER_SIZE.height - 44,
+                                   MOPUB_BANNER_SIZE.width, MOPUB_BANNER_SIZE.height);
+    [self.view addSubview:self.bannerView];
+    
+//    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+    GADRequest *request = [GADRequest request];
+#if DEBUG
+//    request.testDevices = @[ @"27847f3688aa95517a8a0b03bd9f2ea3" ];
+    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+#else
+    self.bannerView.adUnitID = @"ca-app-pub-9254009028575157/5429505022";
+#endif
+    self.bannerView.rootViewController = self;
+    [self.bannerView loadRequest:request];
+    self.bannerView.backgroundColor = UIColorFromRGB(0x27ae60);
 
 }
 
@@ -199,13 +225,15 @@
 - (void)layoutFrame
 {
     _titleView.frame = CGRectMake(0.0f, 20 + 30 + 44.0, self.view.frame.size.width, 40);
-    CGRect calendarRect = CGRectMake(0.0f, 0.0, self.view.frame.size.width, self.view.frame.size.height - (44));
+    CGRect calendarRect = CGRectMake(0.0f, 0.0, self.view.frame.size.width, self.view.frame.size.height - (44 + 50));
     _prevCalendarView.frame = calendarRect;
     _nextCalendarView.frame = calendarRect;
     _currCalendarView.frame = calendarRect;
-    
-    self.adView.frame = CGRectMake(0, self.view.bounds.size.height - MOPUB_BANNER_SIZE.height - 44,
-                                   MOPUB_BANNER_SIZE.width, MOPUB_BANNER_SIZE.height);
+//    self.bannerView.frame = CGRectMake(0, self.view.bounds.size.height - MOPUB_BANNER_SIZE.height - 44,
+//                                       MOPUB_BANNER_SIZE.width, MOPUB_BANNER_SIZE.height);
+    self.bannerView.frame = CGRectMake(0, self.view.bounds.size.height - MOPUB_BANNER_SIZE.height - 44,
+                                       self.view.frame.size.width, MOPUB_BANNER_SIZE.height);
+
 }
 
 - (void)didReceiveMemoryWarning

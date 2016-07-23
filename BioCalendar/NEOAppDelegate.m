@@ -13,11 +13,8 @@
 #import <Crashlytics/Crashlytics.h>
 #import "MoPub.h"
 #import <Google/Analytics.h>
-
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-
-#define RGB(r, g, b)		[UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
-#define RGBA(r, g, b, a)	[UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+@import Firebase;
+@import GoogleMobileAds;
 
 @implementation NEOAppDelegate
 
@@ -32,7 +29,9 @@
     
     [Fabric with:@[[Crashlytics class], [MoPub class]]];
     
-    
+    [FIRApp configure];
+//    [GADMobileAds configureWithApplicationID:@"ca-app-pub-9254009028575157~3952771825"];
+//    [GADMobileAds configureWithApplicationID:@"ca-app-pub-9254009028575157~3952771825"];
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x27ae60)];
     
     NSDictionary *titleDict = @{ NSForegroundColorAttributeName : UIColorFromRGB(0xFFFFFF),

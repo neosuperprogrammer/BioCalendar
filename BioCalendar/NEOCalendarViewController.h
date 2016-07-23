@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "MPAdView.h"
+@import GoogleMobileAds;
 
 @interface NEOCalendarViewController : UIViewController <MPAdViewDelegate>
 
 @property (nonatomic, retain) MPAdView *adView;
+@property (strong, nonatomic) GADBannerView  *bannerView;
 
 @end
