@@ -17,7 +17,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import <Google/Analytics.h>
 
-@interface NEOCalendarViewController ()
+@interface NEOCalendarViewController () <GADBannerViewDelegate>
 
 @property (weak, nonatomic) UISegmentedControl *bioSeg;
 
@@ -68,6 +68,7 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", @"") style:UIBarButtonItemStylePlain target:nil action:nil];
 
     self.navigationController.navigationBar.translucent = NO;
+    self.view.backgroundColor = UIColorFromRGB(0x27ae60);
     
 #if 0
     MPAdView* adView = [[MPAdView alloc] initWithAdUnitId:@"0fd404de447942edb7610228cb412614"
@@ -88,23 +89,68 @@
     // Loads the ad over the network
 //    [self.adView loadAd];
     
+    [self reloadBanner];
+//    self.bannerView =  [[GADBannerView alloc] init];
+//    self.bannerView.frame = CGRectMake(0, self.view.bounds.size.height - MOPUB_BANNER_SIZE.height - 44,
+//                                   MOPUB_BANNER_SIZE.width, MOPUB_BANNER_SIZE.height);
+//    [self.view addSubview:self.bannerView];
+//    
+////    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+//    GADRequest *request = [GADRequest request];
+////#if DEBUG
+//////    request.testDevices = @[ @"27847f3688aa95517a8a0b03bd9f2ea3" ];
+////    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+////#else
+//    self.bannerView.adUnitID = @"ca-app-pub-9254009028575157/5429505022";
+////#endif
+//    self.bannerView.rootViewController = self;
+//    [self.bannerView loadRequest:request];
+//    self.bannerView.backgroundColor = UIColorFromRGB(0x27ae60);
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(foregroundNotification) name:UIApplicationWillEnterForegroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backgroundNotification) name:UIApplicationDidEnterBackgroundNotification object:nil];
+}
+
+- (void)foregroundNotification {
+//    GADRequest *request = [GADRequest request];
+//    [self.bannerView loadRequest:request];
+    [self reloadBanner];
+}
+
+- (void)backgroundNotification {
+    if (self.bannerView != nil) {
+        [self.bannerView removeFromSuperview];
+        self.bannerView = nil;
+    }
+}
+
+- (void)reloadBanner {
+    if (self.bannerView != nil) {
+        [self.bannerView removeFromSuperview];
+        self.bannerView = nil;
+    }
     self.bannerView =  [[GADBannerView alloc] init];
     self.bannerView.frame = CGRectMake(0, self.view.bounds.size.height - MOPUB_BANNER_SIZE.height - 44,
-                                   MOPUB_BANNER_SIZE.width, MOPUB_BANNER_SIZE.height);
+                                       self.view.bounds.size.width, MOPUB_BANNER_SIZE.height);
     [self.view addSubview:self.bannerView];
     
-//    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+    //    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
     GADRequest *request = [GADRequest request];
-#if DEBUG
-//    request.testDevices = @[ @"27847f3688aa95517a8a0b03bd9f2ea3" ];
-    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
-#else
+//    #if DEBUG
+//    //    request.testDevices = @[ @"27847f3688aa95517a8a0b03bd9f2ea3" ];
+//        self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+//    #else
     self.bannerView.adUnitID = @"ca-app-pub-9254009028575157/5429505022";
-#endif
+//    #endif
+    self.bannerView.delegate = self;
     self.bannerView.rootViewController = self;
+    self.bannerView.autoloadEnabled = YES;
     [self.bannerView loadRequest:request];
     self.bannerView.backgroundColor = UIColorFromRGB(0x27ae60);
+}
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -224,8 +270,8 @@
 
 - (void)layoutFrame
 {
-    _titleView.frame = CGRectMake(0.0f, 20 + 30 + 44.0, self.view.frame.size.width, 40);
-    CGRect calendarRect = CGRectMake(0.0f, 0.0, self.view.frame.size.width, self.view.frame.size.height - (44 + 50));
+    _titleView.frame = CGRectMake(0.0f, 0, self.view.frame.size.width, 40);
+    CGRect calendarRect = CGRectMake(0.0f, 40.0, self.view.frame.size.width, self.view.frame.size.height - (40 + 44 + 50));
     _prevCalendarView.frame = calendarRect;
     _nextCalendarView.frame = calendarRect;
     _currCalendarView.frame = calendarRect;
@@ -355,5 +401,41 @@
     [UIView commitAnimations];
 }
 
+
+- (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
+    
+}
+
+/// Tells the delegate that an ad request failed. The failure is normally due to network
+/// connectivity or ad availablility (i.e., no fill).
+- (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(GADRequestError *)error {
+    
+}
+
+#pragma mark Click-Time Lifecycle Notifications
+
+/// Tells the delegate that a full screen view will be presented in response to the user clicking on
+/// an ad. The delegate may want to pause animations and time sensitive interactions.
+- (void)adViewWillPresentScreen:(GADBannerView *)bannerView {
+    
+}
+
+/// Tells the delegate that the full screen view will be dismissed.
+- (void)adViewWillDismissScreen:(GADBannerView *)bannerView {
+    
+}
+
+/// Tells the delegate that the full screen view has been dismissed. The delegate should restart
+/// anything paused while handling adViewWillPresentScreen:.
+- (void)adViewDidDismissScreen:(GADBannerView *)bannerView {
+    
+}
+
+/// Tells the delegate that the user click will open another app, backgrounding the current
+/// application. The standard UIApplicationDelegate methods, like applicationDidEnterBackground:,
+/// are called immediately before this method is called.
+- (void)adViewWillLeaveApplication:(GADBannerView *)bannerView {
+    
+}
 
 @end
